@@ -42,7 +42,7 @@ export default function CardsPage() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-900/90">**** **** **** {(4501 + i).toString().padStart(4, '0')}</p>
-                    <p className="text-xs text-gray-900/60 mt-1">Alex Morgan</p>
+                    <p className="text-xs text-gray-900/60 mt-1">Cardholder</p>
                   </div>
                 </div>
                 <div className="p-6">

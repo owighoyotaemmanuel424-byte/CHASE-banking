@@ -14,7 +14,7 @@ const ROOT = path.resolve(import.meta.dir, '..')
 const SHIPPED_DIRS = ['app', 'components', 'lib', 'hooks', 'convex']
 const SOURCE_EXTENSIONS = new Set(['.ts', '.tsx', '.js', '.jsx', '.mjs'])
 
-/** Every real credential that used to be committed to this repository. */
+/** Every real credential or demo persona that was committed to this repository. */
 const FORBIDDEN_LITERALS = [
   'Owighoyota12345',
   'owighoyotaemmanuel424',
@@ -25,7 +25,11 @@ const FORBIDDEN_LITERALS = [
   '4a8f9b2c3d4e5f60718293a4b5c6d7e8f90123456789abcd', // old 48-char admin master key
   '697-03-2642',
   '+1 (702) 886-4745',
+  '+1 (212) 555-0199',
   '287450',
+  '***-**-6789',
+  'alex.morgan@crestline.demo',
+  'Alex Morgan',
 ]
 
 /** `salt.hash` credential material produced by lib/auth/password-utils. */
@@ -67,7 +71,7 @@ describe('shipped source hygiene', () => {
     expect(shippedFiles.length).toBeGreaterThan(100)
   })
 
-  test('contains no embedded login credential', () => {
+  test('contains no embedded credential or demo persona', () => {
     const offenders: string[] = []
 
     for (const file of shippedFiles) {
@@ -132,6 +136,14 @@ describe('default application state', () => {
       '42580',
     ]) {
       expect(source).not.toContain(literal)
+    }
+  })
+
+  test('renders no demo persona when the profile has not loaded', () => {
+    // The dashboard, profile and cards pages must not fall back to a hardcoded
+    // person when the signed-in profile is still empty.
+    for (const page of ['app/dashboard/page.tsx', 'app/profile/page.tsx', 'app/cards/page.tsx']) {
+      expect(read(path.join(ROOT, page))).not.toContain('Alex Morgan')
     }
   })
 })
