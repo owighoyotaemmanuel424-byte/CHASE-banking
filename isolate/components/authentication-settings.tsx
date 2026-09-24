@@ -22,7 +22,7 @@ interface AuthSettings {
 
 export function AuthenticationSettings() {
   const [settings, setSettings] = useState<AuthSettings>({
-    email: 'demo@example.com',
+    email: '',
     loginAlerts: true,
     sessionTimeout: 30,
     biometricEnabled: false,

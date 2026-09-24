@@ -144,20 +144,20 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
   const defaultUserProfile = {
     id: "user1",
-    name: "Crestline Member",
-    email: "security@crestlinecapital.com",
-    phone: "+1 (702) 886-4745",
-    address: "34B Philadelphia, Pennsylvania PA, USA",
-    dateOfBirth: "1961-08-24",
-    ssn: "XXX-XX-XXXX",
-    memberSince: "August 1988",
+    name: "", // Set after sign-in
+    email: "", // Set after sign-in
+    phone: "",
+    address: "",
+    dateOfBirth: "",
+    ssn: "",
+    memberSince: "",
     profilePicture: "",
     tier: "Crestline Private Client",
   }
 
-  const DEFAULT_USERNAME = "Crestline Member"
-  const DEFAULT_PASSWORD = "[redacted]"
-  const DEFAULT_EMAIL = "chun.hung@demo.example.com"
+  const DEFAULT_USERNAME = ""
+  const DEFAULT_PASSWORD = ""
+  const DEFAULT_EMAIL = ""
 
   useEffect(() => {
     const savedUsers = localStorage.getItem("Crestline_users")
@@ -794,7 +794,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           const { sendSecurityTokenEmail } = await import("@/lib/email-service")
           const tokenResult = await sendSecurityTokenEmail({
             userEmail: signupData.email,
-            adminEmail: "security@crestlinecapital.com",
+            adminEmail: "", // Configured via server environment
             userName: signupData.firstName,
             tokenType: "signup",
           })
@@ -803,7 +803,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           console.error("[v0] Error sending signup token:", err)
         }
 
-        // Also store locally for offline access and demo purposes
+        // Also store locally for offline access
         const newUser: StoredUser = {
           username: signupData.username,
           password: signupData.password,
@@ -2464,7 +2464,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       const userEmail = username || "your registered email"
                       const result = await sendSecurityTokenEmail({
                         userEmail: userEmail,
-                        adminEmail: "security@crestlinecapital.com",
+                        adminEmail: "", // Configured via server environment
                         userName: username || "Crestline Capital User",
                         tokenType: "login",
                       })
@@ -2525,7 +2525,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       const userEmail = username || "your registered email"
                       const result = await sendSecurityTokenEmail({
                         userEmail: userEmail,
-                        adminEmail: "security@crestlinecapital.com",
+                        adminEmail: "", // Configured via server environment
                         userName: username || "Crestline Capital User",
                         tokenType: "login",
                       })
@@ -2566,7 +2566,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       const userEmail = username || "your registered email"
                       const result = await sendSecurityTokenEmail({
                         userEmail: userEmail,
-                        adminEmail: "security@crestlinecapital.com",
+                        adminEmail: "", // Configured via server environment
                         userName: username || "Crestline Capital User",
                         tokenType: "login",
                       })

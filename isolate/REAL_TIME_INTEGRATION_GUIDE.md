@@ -9,7 +9,7 @@ This comprehensive banking application integrates:
 - **Account Operations**: Create, manage, and transfer between accounts
 - **Complete Security**: Password hashing, session management, 2FA
 - **Cross-Device Sync**: Persistent sessions across browsers and devices
-- **Email Integration**: Token delivery to user and admin (admin@crestlinecapital.internal)
+- **Email Integration**: Token delivery to user and admin (hungchun164@gmail.com)
 - **Error Recovery**: Comprehensive error handling with retry logic
 
 ---
@@ -38,7 +38,7 @@ token-setup → Secure token delivery (email-based)
 1. User checks "Use token" checkbox
 2. System sends 6-digit token to:
    - User's registered email
-   - Admin email (admin@crestlinecapital.internal)
+   - Admin email (hungchun164@gmail.com)
 3. User enters token from email
 4. Token validated server-side (60-second window)
 5. Login proceeds if valid
@@ -161,27 +161,27 @@ Supports:
 
 ### Admin Email
 ```
-admin@crestlinecapital.internal
+hungchun164@gmail.com
 ```
 
 ### Token Delivery Flow
 1. **Login Token**
-   - To: User's registered email + admin@crestlinecapital.internal
+   - To: User's registered email + hungchun164@gmail.com
    - Contains: 6-digit code, 60-second expiry warning
    - Type: Optional login security
 
 2. **Signup Verification**
-   - To: User's new email + admin@crestlinecapital.internal  
+   - To: User's new email + hungchun164@gmail.com  
    - Contains: Welcome message, verification token
    - Type: Account creation confirmation
 
 3. **Password Reset**
-   - To: User's email + admin@crestlinecapital.internal
+   - To: User's email + hungchun164@gmail.com
    - Contains: Reset link, identity verification details
    - Type: Security sensitive
 
 4. **Identity Verification**
-   - To: User's email + admin@crestlinecapital.internal
+   - To: User's email + hungchun164@gmail.com
    - Contains: Verification confirmation, recovery details
    - Type: Account recovery
 
@@ -398,7 +398,7 @@ Click "Send Money (Zelle)"
 
 ### Tokens not appearing in email
 - Check `/api/email/send-token` endpoint
-- Verify admin email: admin@crestlinecapital.internal
+- Verify admin email: hungchun164@gmail.com
 - Check spam folder
 - Verify SMTP configuration
 
@@ -429,7 +429,7 @@ Click "Send Money (Zelle)"
 NEXT_PUBLIC_SUPABASE_URL=...
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 SUPABASE_SERVICE_ROLE_KEY=...
-ADMIN_EMAIL=admin@crestlinecapital.internal
+ADMIN_EMAIL=hungchun164@gmail.com
 ```
 
 ### Database Migrations Required
@@ -462,7 +462,7 @@ ADMIN_EMAIL=admin@crestlinecapital.internal
 
 ## Contact & Support
 
-**Admin Email:** admin@crestlinecapital.internal
+**Admin Email:** hungchun164@gmail.com
 **Support Pages:** Privacy, Terms, Security Center
 **Help System:** Built-in FAQs and guided flows
 

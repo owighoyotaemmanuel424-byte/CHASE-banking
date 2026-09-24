@@ -16,8 +16,8 @@ const sessionStore = new Map<string, {
   trusted: boolean
 }>()
 
-// Initialize with some demo sessions
-const initializeDemoSessions = () => {
+// In-memory session store seed
+const initializeSessions = () => {
   if (sessionStore.size === 0) {
     const sessions = [
       {
@@ -62,7 +62,7 @@ const initializeDemoSessions = () => {
 }
 
 export async function POST(request: NextRequest) {
-  initializeDemoSessions()
+  initializeSessions()
   
   try {
     const body = await request.json()
@@ -276,7 +276,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  initializeDemoSessions()
+  initializeSessions()
   
   try {
     const sessions = Array.from(sessionStore.values())

@@ -250,7 +250,7 @@ export function useDeviceManagement() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           action: "logout-all",
-          email: "demo@example.com",
+          email: "",
         }),
       })
 

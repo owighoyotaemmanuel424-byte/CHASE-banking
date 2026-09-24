@@ -27,15 +27,15 @@ export default function InvestmentsPage() {
           </p>
         </div>
 
-        {/* Explicit Sandbox Disclaimer as mandated by Section 18 & 52 */}
+        {/* Investment disclosure */}
         <div className="bg-amber-100 border border-amber-500/30 rounded-2xl p-4 text-xs text-amber-300 flex items-start gap-3">
           <ShieldAlert className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
           <div>
             <span className="font-bold block uppercase tracking-wider text-amber-600 mb-0.5">
-              Sandbox Demonstration Mode
+              Investment Disclosure
             </span>
             <span>
-              Crestline Capital does not execute live security trades or hold broker-dealer licenses directly in this demo environment. Simulated portfolios reflect mock clearing executions for development & demonstration testing only.
+              Investment products are not FDIC insured, are not bank guaranteed, and may lose value. Crestline Capital offers brokerage services through licensed partner firms. Past performance does not guarantee future results.
             </span>
           </div>
         </div>

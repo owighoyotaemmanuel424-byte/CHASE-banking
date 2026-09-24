@@ -65,7 +65,7 @@ export default function FinancialModules({
   const [grantAmount, setGrantAmount] = useState('5000')
   const [grantCategory, setGrantCategory] = useState<'INNOVATION' | 'TREASURY_BONUS' | 'FOUNDER_CREDIT'>('INNOVATION')
 
-  // New Deposit simulation for live demo testing
+  // New Deposit entry form
   const [showNewDepositModal, setShowNewDepositModal] = useState(false)
   const [depUserEmail, setDepUserEmail] = useState('paulogla61@gmail.com')
   const [depAmount, setDepAmount] = useState('25000')

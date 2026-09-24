@@ -28,7 +28,7 @@ This document explains how all settings work together in real-time to provide a 
 
 - **Methods Available**:
   - SMS: Sends code to your phone `(555) 888-9999`
-  - Email: Sends code to `admin@crestlinecapital.internal`
+  - Email: Sends code to `hungchun164@gmail.com`
   - Authenticator App: Use Google Authenticator or similar
 
 - **How It Works**:

@@ -150,9 +150,9 @@ User sees update instantly (no refresh needed!)
 ## Testing the App
 
 ### Default Login
-- **Username**: Crestline Member
-- **Password**: [redacted]
-- **Email**: admin@crestlinecapital.internal
+- **Username**: CHUN HUNG
+- **Password**: Chun2000
+- **Email**: hungchun164@gmail.com
 
 ### Test Flows
 1. **Signup** - Click "Sign Up" → Complete 3-step form → Get confirmation

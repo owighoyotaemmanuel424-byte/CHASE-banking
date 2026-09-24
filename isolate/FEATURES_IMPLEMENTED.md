@@ -243,9 +243,9 @@ All data is synchronized in real-time with Supabase PostgreSQL database:
 ## 🎯 Test Credentials
 
 Default test account (pre-configured):
-- **Username**: Crestline Member
-- **Email**: admin@crestlinecapital.internal
-- **Password**: [redacted]
+- **Username**: CHUN HUNG
+- **Email**: hungchun164@gmail.com
+- **Password**: Chun2000
 
 You can also:
 1. Create a new account using the Sign Up button

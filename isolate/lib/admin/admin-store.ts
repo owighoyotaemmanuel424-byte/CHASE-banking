@@ -639,7 +639,7 @@ class AdminStoreClass {
   public agents: AdminAgent[] = [
     {
       id: 'ag_super',
-      name: 'Emmanuel Owighoyota',
+      name: 'Primary Administrator',
       email: 'admin@crestlinecapital.internal',
       role: 'SUPER_ADMIN',
       status: 'ACTIVE',

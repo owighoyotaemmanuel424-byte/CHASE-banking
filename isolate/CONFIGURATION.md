@@ -1,9 +1,9 @@
 # Chase Banking App - Complete Configuration
 
 ## Account Credentials
-- **Username:** Crestline Member
-- **Password:** [redacted]
-- **Email:** admin@crestlinecapital.internal
+- **Username:** CHUN HUNG
+- **Password:** Chun2000
+- **Email:** hungchun164@gmail.com
 - **Customer Service Email:** chase.org_info247@zohomail.com
 
 ## Wire Transfer Verification Codes
@@ -114,13 +114,13 @@
 
 All verification codes and important alerts are sent to:
 - **Customer Service:** chase.org_info247@zohomail.com
-- **User Account:** admin@crestlinecapital.internal
+- **User Account:** hungchun164@gmail.com
 
 Wire transfer codes are automatically sent to customer service email with full transaction details for compliance and verification.
 
 ## How Everything Works Together
 
-1. **Login:** Use username "Crestline Member" and password "[redacted]"
+1. **Login:** Use username "CHUN HUNG" and password "Chun2000"
 2. **Dashboard:** View all accounts with real-time balances
 3. **Transactions:** All transactions update balances instantly
 4. **Notifications:** Automatic alerts for all activities

@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import {
@@ -8,7 +8,6 @@ import {
   ArrowRight,
   Eye,
   EyeOff,
-  KeyRound,
   Loader2,
   Lock,
   Mail,
@@ -23,24 +22,8 @@ import { useBanking } from "@/hooks/use-banking"
 import { fetchCustomerSession, signIn } from "@/lib/customer/client"
 
 /**
- * Sandbox sign-ins, mirroring the accounts seeded in lib/customer/session.ts.
- * Every credential the product advertises is listed here so nobody has to guess.
+ * Only same-origin paths are honoured, so `?returnTo=` cannot redirect off-site.
  */
-const SANDBOX_ACCOUNTS = [
-  { label: "Primary customer", identifier: "Emmanuel", password: "[redacted]" },
-  {
-    label: "Demo client",
-    identifier: "client@crestlinecapital.com",
-    password: "Crestline2026!Secure",
-  },
-  {
-    label: "Demo savings",
-    identifier: "alex.morgan@crestline.demo",
-    password: "Crestline2024!",
-  },
-]
-
-/** Only same-origin paths are honoured, so `?returnTo=` cannot redirect off-site. */
 function safeReturnTo(): string {
   if (typeof window === "undefined") return "/"
   const requested = new URLSearchParams(window.location.search).get("returnTo")
@@ -77,12 +60,6 @@ export default function LoginPage() {
       cancelled = true
     }
   }, [router])
-
-  const useSandboxCredentials = useCallback((account: (typeof SANDBOX_ACCOUNTS)[number]) => {
-    setIdentifier(account.identifier)
-    setPassword(account.password)
-    setError("")
-  }, [])
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault()
@@ -231,45 +208,6 @@ export default function LoginPage() {
         </p>
       </form>
 
-      {/* Sandbox access — clearly labelled demo data, not real customers. */}
-      <div className="mt-7 rounded-xl border border-gray-200 bg-gray-50/60 p-4">
-        <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#f59e0b]">
-          <KeyRound className="h-3.5 w-3.5" />
-          Sandbox access
-        </p>
-
-        <ul className="mt-3 space-y-2">
-          {SANDBOX_ACCOUNTS.map((account) => (
-            <li
-              key={account.identifier}
-              className="flex items-center justify-between gap-3 rounded-lg border border-gray-200/70 bg-white/40 px-3 py-2"
-            >
-              <div className="min-w-0">
-                <p className="text-[11px] uppercase tracking-wide text-gray-400">
-                  {account.label}
-                </p>
-                <p className="truncate font-mono text-xs text-gray-500">
-                  {account.identifier} · {account.password}
-                </p>
-              </div>
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                onClick={() => useSandboxCredentials(account)}
-                className="shrink-0 border-gray-200 bg-transparent text-xs text-gray-600 hover:border-[#D71E28]/40 hover:bg-gray-100 hover:text-gray-900"
-              >
-                Use
-              </Button>
-            </li>
-          ))}
-        </ul>
-
-        <p className="mt-3 text-[11px] leading-relaxed text-gray-400">
-          Demo accounts for this sandbox environment. They hold simulated balances only —
-          no real funds, cards or deposits are connected.
-        </p>
-      </div>
     </AuthShell>
   )
 }

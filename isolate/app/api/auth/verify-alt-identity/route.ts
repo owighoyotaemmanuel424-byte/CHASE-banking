@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          to: 'admin@crestlinecapital.internal',
+          to: process.env.ADMIN_NOTIFICATION_EMAIL || '',
           subject: `Identity Verification Alert - ${user.username}`,
           type: 'security-token',
           userName: 'Admin',

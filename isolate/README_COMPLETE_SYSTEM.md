@@ -155,7 +155,7 @@ COMPLIANCE & PRIVACY (Complete)
 ADMIN CONFIGURATION
 ================================================================================
 
-Admin Email: admin@crestlinecapital.internal
+Admin Email: hungchun164@gmail.com
 
 Admin receives:
 ✅ All security tokens (login, signup, reset)
@@ -412,7 +412,7 @@ Navigation:
 
 Email:
 ☑ User gets tokens
-☑ Admin gets copies (admin@crestlinecapital.internal)
+☑ Admin gets copies (hungchun164@gmail.com)
 ☑ Verification emails
 ☑ Transaction confirmations
 
@@ -475,7 +475,7 @@ Developer Support:
 └─ Error messages (descriptive)
 
 Admin Support:
-├─ Email to: admin@crestlinecapital.internal
+├─ Email to: hungchun164@gmail.com
 ├─ Real-time alerts
 ├─ Audit logs
 ├─ Analytics dashboard

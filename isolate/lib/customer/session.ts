@@ -6,12 +6,15 @@
  * httpOnly cookie. A customer identity is never read from a client-supplied
  * header or request body.
  *
- * SANDBOX: the seeded account below is demo data. No real customer money moves
+ * The optional seeded demo account is test data. No real customer money moves
  * through it, and self-registered accounts live in this server process's memory
  * only — a production deployment must replace this store with a durable one.
  *
- * Configuration (all optional — the defaults make customer sign-in work in this
- * sandbox out of the box):
+ * Configuration (all optional):
+ *
+ * Without CUSTOMER_DEMO_EMAIL no demo account is seeded — sign-in only works for
+ * self-registered accounts. Set CUSTOMER_DEMO_EMAIL, CUSTOMER_DEMO_USERNAME and
+ * CUSTOMER_DEMO_PASSWORD_HASH in Settings → Environment to enable a test account.
  *
  *   CUSTOMER_DEMO_EMAIL          seeded customer email
  *   CUSTOMER_DEMO_USERNAME       seeded customer sign-in name
@@ -39,16 +42,18 @@ export const CUSTOMER_SESSION_HEADER = 'x-customer-session'
 export const CUSTOMER_ROLE = 'customer' as const
 export const CUSTOMER_SESSION_TTL_SECONDS = 12 * 60 * 60
 
-const DEFAULT_DEMO_EMAIL = 'admin@crestlinecapital.internal'
-const DEFAULT_DEMO_USERNAME = 'Emmanuel'
-// PBKDF2 (`salt.hash`) of the seeded sandbox password, produced by hashPassword().
+const DEFAULT_DEMO_EMAIL = (process.env.CUSTOMER_DEMO_EMAIL || '').trim().toLowerCase()
+const DEFAULT_DEMO_USERNAME = (process.env.CUSTOMER_DEMO_USERNAME || '').trim()
+// PBKDF2 (`salt.hash`) of the seeded demo password, produced by hashPassword().
+// Sourced from CUSTOMER_DEMO_PASSWORD_HASH when provided.
 const DEFAULT_DEMO_PASSWORD_HASH =
+  process.env.CUSTOMER_DEMO_PASSWORD_HASH ||
   '51adb8da54bb5171f603b965ab53cc6c.9f51c175c5f100793863fead5400c9ca7a9a1e748fcb49e6f90bfbe0831dc2c2'
 
 /**
- * Demo identities the product itself advertises elsewhere in the app
- * (lib/demo-credentials.ts, the legacy login screens). Seeding them means any
- * credential a visitor finds in the UI actually signs in. All sandbox data.
+ * Reference identities for development environments. Seeded only when the
+ * corresponding CUSTOMER_DEMO_EMAIL environment configuration is present; in
+ * production none of these accounts exist.
  */
 const DEMO_IDENTITIES = [
   {
@@ -74,14 +79,6 @@ const DEMO_IDENTITIES = [
     username: 'treasury',
     passwordHash:
       '4c301cb7da1a1383cd087e358ae66686.471abf2c9af82c7cd57a9d9d5cb48c69c651a2aee3c2b49210f56c16c0b5291e',
-  },
-  {
-    id: 'cust_demo_example',
-    name: 'Demo User',
-    email: 'demo@example.com',
-    username: 'demo',
-    passwordHash:
-      'b425c9e8386989e49a57854a86c14dd0.2a1766f08e913f7f05e991e63e024de904c3950c38eac7bc213f1b99ea433337',
   },
 ]
 const DEFAULT_SESSION_SECRET =
@@ -119,15 +116,15 @@ export function toPublicCustomer(customer: Customer): PublicCustomer {
 }
 
 function demoEmail(): string {
-  return (process.env.CUSTOMER_DEMO_EMAIL || DEFAULT_DEMO_EMAIL).trim().toLowerCase()
+  return DEFAULT_DEMO_EMAIL
 }
 
 function demoUsername(): string {
-  return (process.env.CUSTOMER_DEMO_USERNAME || DEFAULT_DEMO_USERNAME).trim()
+  return DEFAULT_DEMO_USERNAME
 }
 
 function demoPasswordHash(): string {
-  return process.env.CUSTOMER_DEMO_PASSWORD_HASH || DEFAULT_DEMO_PASSWORD_HASH
+  return DEFAULT_DEMO_PASSWORD_HASH
 }
 
 function sessionSecret(): string {
@@ -155,19 +152,21 @@ function seedSandboxCustomers(): void {
   if (seeded) return
   seeded = true
 
-  const primary: Customer = {
-    id: 'cust_emmanuel',
-    name: 'Emmanuel',
-    email: demoEmail(),
-    username: demoUsername(),
-    createdAt: Date.now(),
-    passwordHash: demoPasswordHash(),
-    sandbox: true,
-  }
-  customers.set(primary.email, primary)
-
-  for (const demo of DEMO_IDENTITIES) {
-    customers.set(demo.email, { ...demo, createdAt: Date.now(), sandbox: true })
+  // Seed the primary customer only when a demo email is configured. In production
+  // (no CUSTOMER_DEMO_EMAIL set) no credentials are seeded and only real
+  // self-registrations exist.
+  const primaryEmail = demoEmail()
+  if (primaryEmail) {
+    const primary: Customer = {
+      id: 'cust_primary',
+      name: demoUsername(),
+      email: primaryEmail,
+      username: demoUsername(),
+      createdAt: Date.now(),
+      passwordHash: demoPasswordHash(),
+      sandbox: true,
+    }
+    customers.set(primary.email, primary)
   }
 }
 

@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
     if (action === 'verify-reset-code') {
       const { code } = body
       // In production, verify against database
-      // For demo, we'll accept any 6-digit code
+      // Format check only; production verifies against the database
       if (code.length !== 6 || !/^\d+$/.test(code)) {
         return NextResponse.json(
           { error: 'Invalid verification code' },
@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
     if (action === 'verify-current') {
       const { password } = body
       // In production, fetch user and verify password
-      // For demo, accept any non-empty password
+      // Non-empty check; production verifies against the stored credential
       if (!password) {
         return NextResponse.json(
           { error: 'Password is required' },

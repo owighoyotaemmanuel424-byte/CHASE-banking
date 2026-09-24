@@ -371,7 +371,7 @@ export function LinkedDevicesManager({ onBack }: LinkedDevicesManagerProps) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           action: "logout-all",
-          email: "demo@example.com",
+          email: "",
         }),
       })
 

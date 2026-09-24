@@ -115,7 +115,7 @@ export default function SystemModules({
   })
 
   // SMTP Test Diagnostics State
-  const [testRecipientEmail, setTestRecipientEmail] = useState('admin@crestlinecapital.internal')
+  const [testRecipientEmail, setTestRecipientEmail] = useState('')
   const [isTestingSmtp, setIsTestingSmtp] = useState(false)
   const [smtpTestResult, setSmtpTestResult] = useState<{
     success: boolean
@@ -868,7 +868,7 @@ export default function SystemModules({
                     <div>
                       <span className="font-bold text-gray-900 block">Super Admin Audit & Threat Escalations</span>
                       <span className="text-gray-400 block text-[11px] leading-relaxed">
-                        Dispatches instant security audit reports to Emmanuel Owighoyota upon abnormal ledger adjustments.
+                        Dispatches instant security audit reports to the compliance officer on duty upon abnormal ledger adjustments.
                       </span>
                     </div>
                   </label>

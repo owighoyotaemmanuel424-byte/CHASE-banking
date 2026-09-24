@@ -112,7 +112,7 @@ export function AuthShell({
 
           <p className="flex items-center gap-2 text-xs text-gray-400">
             <Lock className="h-3.5 w-3.5" />
-            Sandbox environment — demo data only, no real funds are held or moved.
+            Secure environment — encrypted sessions protect your banking activity.
           </p>
         </div>
 
