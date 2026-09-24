@@ -45,42 +45,10 @@ export const CUSTOMER_SESSION_TTL_SECONDS = 12 * 60 * 60
 const DEFAULT_DEMO_EMAIL = (process.env.CUSTOMER_DEMO_EMAIL || '').trim().toLowerCase()
 const DEFAULT_DEMO_USERNAME = (process.env.CUSTOMER_DEMO_USERNAME || '').trim()
 // PBKDF2 (`salt.hash`) of the seeded demo password, produced by hashPassword().
-// Sourced from CUSTOMER_DEMO_PASSWORD_HASH when provided.
-const DEFAULT_DEMO_PASSWORD_HASH =
-  process.env.CUSTOMER_DEMO_PASSWORD_HASH ||
-  '51adb8da54bb5171f603b965ab53cc6c.9f51c175c5f100793863fead5400c9ca7a9a1e748fcb49e6f90bfbe0831dc2c2'
-
-/**
- * Reference identities for development environments. Seeded only when the
- * corresponding CUSTOMER_DEMO_EMAIL environment configuration is present; in
- * production none of these accounts exist.
- */
-const DEMO_IDENTITIES = [
-  {
-    id: 'cust_demo_alex',
-    name: 'Alex Morgan',
-    email: 'alex.morgan@crestline.demo',
-    username: 'Alex Morgan',
-    passwordHash:
-      '74d2c8774caf4abb4180f785e0342442.edd83d819e27367563b0958e2a7ec04721c932c183b5e6dc39a8b0d88d5f6636',
-  },
-  {
-    id: 'cust_demo_client',
-    name: 'Crestline Client',
-    email: 'client@crestlinecapital.com',
-    username: 'client',
-    passwordHash:
-      'a1d07838dd68586471b3bfa8f7fed826.ae8892404c7f2d3418fff0200567be9794da1a02cb462724acaf6ac197ba71f4',
-  },
-  {
-    id: 'cust_demo_treasury',
-    name: 'Crestline Treasury',
-    email: 'treasury@crestlinecapital.com',
-    username: 'treasury',
-    passwordHash:
-      '4c301cb7da1a1383cd087e358ae66686.471abf2c9af82c7cd57a9d9d5cb48c69c651a2aee3c2b49210f56c16c0b5291e',
-  },
-]
+// Sourced only from CUSTOMER_DEMO_PASSWORD_HASH - no hash ships in source, so a
+// deployment that configures an email but forgets the hash seeds an account no
+// published password can match.
+const DEFAULT_DEMO_PASSWORD_HASH = process.env.CUSTOMER_DEMO_PASSWORD_HASH || ''
 const DEFAULT_SESSION_SECRET =
   '9c1f0d6b4a8e27c53f0b91d48a6c2e7305b8f1d29c4a6e83507f2b19d6c4a0e7813b5'
 

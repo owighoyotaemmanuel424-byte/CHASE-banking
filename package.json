@@ -13,7 +13,7 @@
     "convex:dev": "convex dev",
     "convex:deploy": "convex deploy",
     "lint": "next lint",
-    "test": "node -e \"console.log('Crestline Capital test runner is not configured yet')\""
+    "test": "bun test tests"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

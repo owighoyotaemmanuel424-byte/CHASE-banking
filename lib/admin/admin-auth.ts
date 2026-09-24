@@ -150,7 +150,7 @@ export class AdminAuthEngine {
     ip: string = '127.0.0.1',
     userAgent: string = 'System Admin'
   ): { success: boolean; session?: AdminSession; error?: string; remainingAttempts?: number } {
-    const cleanKey = key.trim().toLowerCase()
+    const cleanKey = (key || '').trim().toLowerCase()
     const configuredKey = (process.env.ADMIN_MASTER_KEY || ADMIN_MASTER_KEY).trim().toLowerCase()
 
     // Rate limiting check
@@ -161,6 +161,19 @@ export class AdminAuthEngine {
         success: false,
         error: `Security Lockout: Too many failed gatekeeper attempts. Try again in ${waitMins} minute(s).`,
       }
+    }
+
+    // Fail closed. With no ADMIN_MASTER_KEY configured the gate has nothing to
+    // compare against, and an empty/whitespace key trims down to the same empty
+    // string - both must be rejected instead of minting a SUPER_ADMIN session.
+    if (!configuredKey) {
+      return {
+        success: false,
+        error: 'Master gatekeeper authentication is not configured on this server.',
+      }
+    }
+    if (!cleanKey) {
+      return { success: false, error: 'Enter the 48-character hexadecimal master gatekeeper key.' }
     }
 
     if (cleanKey !== configuredKey) {
@@ -228,6 +241,18 @@ export class AdminAuthEngine {
         success: false,
         error: `Security Lockout: Too many failed login attempts. Try again in ${waitMins} minute(s).`,
       }
+    }
+
+    // Fail closed: an unconfigured administrator, or a blank submission, must
+    // never compare equal to an empty configured credential.
+    if (!configuredEmail || !configuredPassword.trim()) {
+      return {
+        success: false,
+        error: 'Administrative sign-in is not configured on this server.',
+      }
+    }
+    if (!cleanEmail || !cleanPassword.trim()) {
+      return { success: false, error: 'Enter your administrative email and password.' }
     }
 
     const emailMatches = cleanEmail === configuredEmail

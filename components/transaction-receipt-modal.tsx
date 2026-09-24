@@ -87,8 +87,8 @@ export function TransactionReceiptModal({ open, onOpenChange, transactionId, onD
 
 ACCOUNT INFORMATION
 ════════════════════════════════════════════════════════════
-Account Holder:        ${userProfile?.name || "Lin Huang"}
-Account Email:         ${userProfile?.email || "linhuang011@gmail.com"}
+Account Holder:        ${userProfile?.name || "—"}
+Account Email:         ${userProfile?.email || "—"}
 Account Type:          ${transaction.accountFrom || "Checking"}
 
 TRANSACTION DETAILS
@@ -354,11 +354,11 @@ IMPORTANT INFORMATION
         <div class="section-title">Account Information</div>
         <div class="detail-row">
           <span class="detail-label">Account Holder</span>
-          <span class="detail-value">${userProfile?.name || "Lin Huang"}</span>
+          <span class="detail-value">${userProfile?.name || "—"}</span>
         </div>
         <div class="detail-row">
           <span class="detail-label">Email</span>
-          <span class="detail-value">${userProfile?.email || "linhuang011@gmail.com"}</span>
+          <span class="detail-value">${userProfile?.email || "—"}</span>
         </div>
         <div class="detail-row">
           <span class="detail-label">Account Type</span>
@@ -621,7 +621,7 @@ IMPORTANT INFORMATION
             {/* Account Holder */}
             <div className="px-4 py-3 border-b border-[#D71E28]/10 hover:bg-[#D71E28]/5 transition">
               <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Account Holder</p>
-              <p className="font-semibold text-foreground mt-1">{userProfile?.name || "Lin Huang"}</p>
+              <p className="font-semibold text-foreground mt-1">{userProfile?.name || "—"}</p>
             </div>
 
             {/* Description */}
