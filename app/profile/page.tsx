@@ -77,7 +77,7 @@ export default function ProfilePage() {
                 <input
                   type="text"
                   disabled
-                  value={userProfile?.name || 'Alex Morgan'}
+                  value={userProfile?.name || ''}
                   className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium opacity-75 cursor-not-allowed"
                 />
               </div>

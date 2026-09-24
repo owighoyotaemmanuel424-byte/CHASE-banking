@@ -1,12 +1,6 @@
 // Account metadata for seeded reference accounts.
-// No credentials are stored here — passwords are managed server-side only.
-
-export const DEMO_CREDENTIALS = {
-  firstName: "Alex",
-  lastName: "Morgan",
-  email: "alex.morgan@crestline.demo",
-  username: "Alex Morgan",
-}
+// No credentials or personas are stored here — passwords are managed server-side
+// and the signed-in profile supplies the account holder's identity.
 
 export const DEMO_ACCOUNTS = [
   {

@@ -43,7 +43,7 @@ export default function DashboardPage() {
               <ShieldCheck className="w-4 h-4 text-green-600" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900">
-              Welcome back, {userProfile?.name || 'Alex Morgan'}
+              Welcome back{userProfile?.name ? `, ${userProfile.name}` : ''}
             </h1>
             <p className="text-sm text-gray-500 mt-1">
               Here is your financial overview and active ledger status.
