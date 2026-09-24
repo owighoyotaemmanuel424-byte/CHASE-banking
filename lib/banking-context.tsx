@@ -553,16 +553,18 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
 
   const [userProfile, setUserProfile] = useState<UserProfile>({
     id: "user1",
-    name: "Alex Morgan",
-    email: "alex.morgan@crestline.demo",
-    phone: "+1 (212) 555-0199",
-    address: "125 Park Avenue, New York, NY 10017",
-    memberSince: "2020-03-15",
+    // Identity stays empty until the signed-in profile hydrates it. No demo
+    // persona ships as the starting state.
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    memberSince: "",
     tier: "Crestline Premium",
-    ultimateRewardsPoints: 42580,
+    ultimateRewardsPoints: 0,
     profilePicture: null,
-    dateOfBirth: "1990-06-15",
-    ssn: "***-**-6789",
+    dateOfBirth: "",
+    ssn: "",
     preferredLanguage: "English",
     currency: "USD",
     timezone: "America/New_York",

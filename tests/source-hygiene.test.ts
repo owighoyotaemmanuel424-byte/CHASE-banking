@@ -119,3 +119,19 @@ describe('customer demo identities', () => {
     expect(source).toContain('process.env.CUSTOMER_DEMO_EMAIL')
   })
 })
+
+describe('default application state', () => {
+  test('seeds no demo persona into the banking profile', () => {
+    const source = read(path.join(ROOT, 'lib/banking-context.tsx'))
+
+    for (const literal of [
+      'Alex Morgan',
+      'alex.morgan@crestline.demo',
+      '+1 (212) 555-0199',
+      '***-**-6789',
+      '42580',
+    ]) {
+      expect(source).not.toContain(literal)
+    }
+  })
+})
