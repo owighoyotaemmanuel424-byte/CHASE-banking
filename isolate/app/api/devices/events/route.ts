@@ -11,8 +11,8 @@ const deviceEvents: Array<{
   metadata?: Record<string, any>
 }> = []
 
-// Initialize with some demo events
-const initializeDemoEvents = () => {
+// In-memory event store seed
+const initializeEvents = () => {
   if (deviceEvents.length === 0) {
     const now = Date.now()
     deviceEvents.push(
@@ -47,7 +47,7 @@ const initializeDemoEvents = () => {
 }
 
 export async function GET(request: NextRequest) {
-  initializeDemoEvents()
+  initializeEvents()
 
   const { searchParams } = new URL(request.url)
   const since = searchParams.get('since')
@@ -81,7 +81,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  initializeDemoEvents()
+  initializeEvents()
 
   try {
     const body = await request.json()

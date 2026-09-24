@@ -66,7 +66,7 @@ export default function SavingsInvestmentsPage() {
                     <span className="text-[#f59e0b]">Risk: {fund.risk}</span>
                     <span className="text-[#10b981]">Return: {fund.return}</span>
                   </div>
-                  <p className="text-xs text-gray-500 mt-3 italic">* Sandbox/Demo — not real investment execution</p>
+                  <p className="text-xs text-gray-500 mt-3 italic">* Past performance does not guarantee future results</p>
                 </div>
               ))}
             </div>

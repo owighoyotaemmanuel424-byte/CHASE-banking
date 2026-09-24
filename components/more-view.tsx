@@ -106,16 +106,16 @@ const generateDemoIP = () => {
 
 const defaultUserProfile = {
   id: "user1",
-  name: "Lin Huang",
-  email: "linhuang011@gmail.com",
-  phone: "(555) 888-9999",
-  address: "245 Park Avenue, New York, NY 10167",
-  dateOfBirth: "1985-06-15",
-  ssn: "***-**-4521",
-  memberSince: "March 2018",
+  name: "", // Set after sign-in
+  email: "", // Set after sign-in
+  phone: "",
+  address: "",
+  dateOfBirth: "",
+  ssn: "",
+  memberSince: "",
   profilePicture: "",
   tier: "Crestline Private Client",
-  ultimateRewardsPoints: 287450,
+  ultimateRewardsPoints: 0,
   preferredLanguage: "English",
   currency: "USD",
   timezone: "America/New_York",

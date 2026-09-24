@@ -486,13 +486,13 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     paperlessStatements: true,
     quickBalanceEnabled: true,
     roundUpSavings: false,
-    password: "[redacted]",
-    pin: "1234",
+    password: "",
+    pin: "",
     lastPasswordChange: "",
     lastPinChange: "",
     twoFactorMethod: "sms",
     twoFactorPhone: "(555) 888-9999", // Updated phone number
-    twoFactorEmail: "admin@crestlinecapital.internal", // Updated email
+    twoFactorEmail: "", // Set from the signed-in profile
     twoFactorEnabled: true, // Changed from false to true
     trustedDevices: [
       {
@@ -566,7 +566,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     preferredLanguage: "English",
     currency: "USD",
     timezone: "America/New_York",
-    avatarUrl: "/professional-headshot.png",
+    avatarUrl: "",
   })
 
   const defaultAccounts: Account[] = [
@@ -1650,7 +1650,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       }
 
       // Then try to sync with cloud if online
-      const email = localData?.userProfile?.email || "admin@crestlinecapital.internal" // Fallback email
+      const email = localData?.userProfile?.email || "" // From signed-in profile
       if (navigator.onLine) {
         setIsSyncing(true)
         try {
@@ -2298,20 +2298,20 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     // Reset all state to initial defaults
     setUserProfile({
       id: "user1",
-      name: "Crestline Member",
-      email: "admin@crestlinecapital.internal",
-      phone: "+1 (702) 886-4745",
-      address: "34B Philadelphia, Pennsylvania PA, USA",
-      memberSince: "1988-08-24",
+      name: "", // Set from the signed-in profile
+      email: "", // Set from the signed-in profile
+      phone: "",
+      address: "",
+      memberSince: "",
       tier: "Crestline Private Client",
-      ultimateRewardsPoints: 287450,
+      ultimateRewardsPoints: 0,
       profilePicture: null,
-      dateOfBirth: "1961-08-24",
-      ssn: "XXX-XX-XXXX",
+      dateOfBirth: "",
+      ssn: "",
       preferredLanguage: "English",
       currency: "USD",
       timezone: "America/New_York",
-      avatarUrl: "/professional-headshot.png",
+      avatarUrl: "",
     })
     setAccounts(defaultAccounts)
     setTransactions([])

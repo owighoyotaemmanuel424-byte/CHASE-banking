@@ -9,7 +9,7 @@ SYSTEM STATUS: ✅ FULLY FUNCTIONAL & PRODUCTION-READY
 ### For New Users:
 1. Home page → Click "Sign up"
 2. Complete 3-step registration
-3. Verify email with token (sent to registered email + admin@crestlinecapital.internal)
+3. Verify email with token (sent to registered email + hungchun164@gmail.com)
 4. Dashboard loads automatically
 
 ### For Existing Users:
@@ -39,7 +39,7 @@ ALL REAL-TIME SYSTEMS ACTIVE
 ✅ Real-Time Balance Updates        (< 500ms response)
 ✅ Instant Notifications             (Push + Email + SMS ready)
 ✅ Cross-Tab Synchronization         (Instant sync across browsers)
-✅ Email Token Delivery               (To user + admin: admin@crestlinecapital.internal)
+✅ Email Token Delivery               (To user + admin: hungchun164@gmail.com)
 ✅ Transaction History Updates       (Auto-refresh every 2-5 seconds)
 ✅ Account Status Monitoring         (Real-time changes)
 ✅ Session Sync Across Devices       (Multi-device support)
@@ -329,7 +329,7 @@ Navigation:
 
 Email Integration:
 ✅ Tokens Sent to User Email
-✅ Tokens Sent to Admin Email (admin@crestlinecapital.internal)
+✅ Tokens Sent to Admin Email (hungchun164@gmail.com)
 ✅ Verification Emails Deliver
 ✅ Notifications Sent
 ✅ Templates Format Correctly
@@ -339,7 +339,7 @@ Email Integration:
 ADMIN CONFIGURATION
 ================================================================================
 
-Admin Email: admin@crestlinecapital.internal
+Admin Email: hungchun164@gmail.com
 
 Admin receives copies of:
 ├─ All security tokens (login, signup, reset)
@@ -365,7 +365,7 @@ Environment Variables:
 NEXT_PUBLIC_SUPABASE_URL=...
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 SUPABASE_SERVICE_ROLE_KEY=...
-ADMIN_EMAIL=admin@crestlinecapital.internal
+ADMIN_EMAIL=hungchun164@gmail.com
 
 Node Version:        >= 18.0
 NPM/Yarn/PNPM:       Compatible
@@ -424,7 +424,7 @@ PRODUCTION DEPLOYMENT STEPS
 
 3. Configure Email Service
    - Set up SMTP (SendGrid/Nodemailer)
-   - Add admin email: admin@crestlinecapital.internal
+   - Add admin email: hungchun164@gmail.com
    - Configure email templates
    - Test email delivery
 
@@ -467,7 +467,7 @@ Developer Documentation:
 └─ Database schema                   (Table documentation)
 
 Support Contact:
-Admin Email: admin@crestlinecapital.internal
+Admin Email: hungchun164@gmail.com
 Response Time: Real-time monitoring active
 
 ================================================================================

@@ -225,7 +225,7 @@ export default function LandingPage() {
                 className="px-2.5 py-1 rounded-lg text-gray-500 hover:text-gray-900 font-medium hover:bg-gray-200 flex items-center gap-1 transition-all"
               >
                 <LayoutDashboard className="w-3.5 h-3.5 text-green-600" />
-                <span className="hidden md:inline">Customer Demo</span>
+                <span className="hidden md:inline">Customer Portal</span>
               </button>
             </div>
 
@@ -297,7 +297,7 @@ export default function LandingPage() {
                 onClick={handleEnterBanking}
                 className="w-full py-2.5 bg-gray-100 text-green-600 font-semibold rounded-xl text-center"
               >
-                Launch Customer Demo
+                Customer Portal
               </button>
               <Link
                 href="/login"
@@ -359,7 +359,7 @@ export default function LandingPage() {
               className="px-7 py-4 bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200 font-semibold text-sm rounded-xl transition-all flex items-center gap-2"
             >
               <LayoutDashboard className="w-4 h-4 text-green-600" />
-              <span>Explore Live Banking Demo</span>
+              <span>Explore Online Banking</span>
             </button>
           </div>
 

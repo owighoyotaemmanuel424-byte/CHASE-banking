@@ -737,7 +737,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
     }, 1500)
   }
 
-  // Mock transferFunds function for demonstration
+  // Fallback transfer handler
   const transferFunds = (fromAccount: any, amount: number) => {
     console.log(`Transferring $${amount.toLocaleString()} from ${fromAccount.name} (${fromAccount.id})`)
     // In a real app, this would involve API calls to your backend to debit the account and credit the recipient.

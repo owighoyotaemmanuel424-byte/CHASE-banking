@@ -143,9 +143,9 @@ function AdminConsoleContent() {
     email: string
     role: string
   }>({
-    name: 'Emmanuel Owighoyota',
-    email: 'admin@crestlinecapital.internal',
-    role: 'SUPER_ADMIN',
+    name: 'Administrator',
+    email: '',
+    role: 'ADMIN',
   })
 
   // Sync active admin identity and verify session
@@ -158,9 +158,9 @@ function AdminConsoleContent() {
 
       if (storedEmail) {
         setAdminSession({
-          name: storedName || 'Emmanuel Owighoyota',
+          name: storedName || 'Administrator',
           email: storedEmail,
-          role: storedRole || 'SUPER_ADMIN',
+          role: storedRole || 'ADMIN',
         })
       } else {
         fetch('/api/admin/auth/session')

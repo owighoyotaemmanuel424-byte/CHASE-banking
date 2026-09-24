@@ -180,7 +180,7 @@ User clicks "Send Money" button in QuickActions
 
 - [x] Application loads without errors
 - [x] Error boundary catches and displays errors
-- [x] Login page works with default credentials (Crestline Member / [redacted])
+- [x] Login page works with default credentials (CHUN HUNG / Chun2000)
 - [x] Navigation between views triggers smoothly
 - [x] All drawer buttons open corresponding drawers
 - [x] Form submissions update context data
@@ -191,9 +191,9 @@ User clicks "Send Money" button in QuickActions
 
 ## Default Test Credentials
 
-- **Username**: Crestline Member
-- **Password**: [redacted]
-- **Email**: admin@crestlinecapital.internal
+- **Username**: CHUN HUNG
+- **Password**: Chun2000
+- **Email**: hungchun164@gmail.com
 - **Phone**: +1 (702) 886-4745
 
 ## Known Good Features

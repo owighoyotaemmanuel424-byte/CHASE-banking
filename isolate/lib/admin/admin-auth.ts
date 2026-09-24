@@ -258,7 +258,7 @@ export class AdminAuthEngine {
     const sessionId = `adm_sess_${Date.now()}_${Math.random().toString(36).substring(2, 12)}`
     const session: AdminSession = {
       sessionId,
-      adminId: 'adm_owighoyota',
+      adminId: 'adm_primary',
       email: ADMIN_DEFAULT_CREDENTIALS.email,
       name: ADMIN_DEFAULT_CREDENTIALS.name,
       role: 'SUPER_ADMIN',

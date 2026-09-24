@@ -151,9 +151,9 @@ console.log("[v0] Login successful for user:", displayName)
 ## Testing
 
 ### Default User
-- **Username**: Crestline Member
-- **Password**: [redacted]
-- **Email**: admin@crestlinecapital.internal
+- **Username**: CHUN HUNG
+- **Password**: Chun2000
+- **Email**: hungchun164@gmail.com
 
 ### Test Scenarios
 1. **Successful Login**: Use default credentials

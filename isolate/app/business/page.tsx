@@ -70,7 +70,7 @@ export default function BusinessPage() {
             </div>
             <h2 className="text-lg font-bold text-gray-900 mb-2">Real-Time ERP & Ledger Sync</h2>
             <p className="text-xs text-gray-500 leading-relaxed">
-              Sync automatically into QuickBooks, Xero, and NetSuite. Direct programmatic API access with sandbox testing environments.
+              Sync automatically into QuickBooks, Xero, and NetSuite. Direct programmatic API access with full developer documentation.
             </p>
           </div>
         </div>

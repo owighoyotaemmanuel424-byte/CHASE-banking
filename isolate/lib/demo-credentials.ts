@@ -1,16 +1,11 @@
-// Demo credentials for development and testing
-// NEVER use these in production - for development/demo only
-// SANDBOX MODE: This is a demo environment
+// Account metadata for seeded reference accounts.
+// No credentials are stored here — passwords are managed server-side only.
 
 export const DEMO_CREDENTIALS = {
   firstName: "Alex",
   lastName: "Morgan",
   email: "alex.morgan@crestline.demo",
   username: "Alex Morgan",
-  // This is a bcrypt hash - replace with actual hash in production
-  passwordHash: "$2b$10$YourHashedPasswordHere",
-  // Plain text ONLY for reference - NEVER store this
-  passwordPlain: "Crestline2024!",
 }
 
 export const DEMO_ACCOUNTS = [
